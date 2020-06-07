@@ -12,7 +12,6 @@ class BookingViewSet(mixins.CreateModelMixin,
 
 
 class RoomViewSet(mixins.CreateModelMixin,
-                  mixins.ListModelMixin,
                   mixins.RetrieveModelMixin,
                   viewsets.GenericViewSet):
     queryset = Room.objects.all()
