@@ -28,7 +28,8 @@ class RoomForm extends Component {
            capacity: this.state.capacity
        })
        .then(function(response) {
-           console.log(response)
+           let id = response.data.id;
+           window.location.href = '/'+id;
        })
     }
     render(){
