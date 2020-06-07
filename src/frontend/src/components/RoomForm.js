@@ -1,9 +1,7 @@
 import React, { Component } from "react"
 import { render } from "react-dom";
 import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
-import Jumbotron from 'react-bootstrap/Jumbotron';
 
 const axios = require('axios').default;
 

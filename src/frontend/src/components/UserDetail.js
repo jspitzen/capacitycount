@@ -40,7 +40,7 @@ class UserDetail extends Component {
         return(
             <>
                 <h1>User: {this.state.name}</h1>
-                <h3>Room: {this.state.room_name}</h3>
+                <h4>Room: {this.state.room_name}</h4>
             </>
         )
     }

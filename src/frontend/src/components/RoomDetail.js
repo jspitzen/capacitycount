@@ -46,6 +46,7 @@ class RoomDetail extends Component {
         return(
             <>
             <h1>ROOM: {this.state.name}</h1>
+            <h4>Users in this room</h4>
             <h4>Create a user</h4>
             <Form inline>
                 <Form.Group>
