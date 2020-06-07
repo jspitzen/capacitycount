@@ -29,13 +29,12 @@ class RoomForm extends Component {
        })
        .then(function(response) {
            let id = response.data.id;
-           window.location.href = '/'+id;
+           window.location.href = '/' + id;
        })
     }
     render(){
      return(
-        <Container className="p-3">
-        <Jumbotron>
+        <>
           <h1 className="header">Welcome to CapacityCount</h1>
           <p>
               You can use the form below to create a new room, or use your existing link to visit your room page.
@@ -62,8 +61,7 @@ class RoomForm extends Component {
             <Button variant="secondary" onClick={this.handleSubmit.bind(this)}>Create room</Button>
             </Form.Group>
           </Form>
-        </Jumbotron>
-        </Container>
+        </>
      )
     }
 }

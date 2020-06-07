@@ -7,26 +7,33 @@ import {
   Link
 } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 import RoomForm from "./RoomForm";
 import RoomDetail from "./RoomDetail";
+import UserDetail from "./UserDetail";
 
 
 const container = document.getElementById("app");
 export default function App() {
   return (
     <Container className="p-3">
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/:room" component={RoomDetail}>
-          </Route>
-          <Route path="/">
-            <RoomForm />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+      <Jumbotron>
+        <Router>
+          <div>
+            <Switch>
+
+              <Route path="/:room/:user" component={UserDetail}>
+              </Route>
+              <Route path="/:room" component={RoomDetail}>
+              </Route>
+              <Route path="/">
+                <RoomForm />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </Jumbotron>
     </Container>
   );
 }
