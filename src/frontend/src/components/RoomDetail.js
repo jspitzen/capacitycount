@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { render } from "react-dom";
 
+const axios = require('axios').default;
+
 class RoomDetail extends Component {
     constructor(props){
         super(props);
@@ -10,10 +12,20 @@ class RoomDetail extends Component {
             'name': '',
             'initialized': false
         }
+        let self = this
+        axios.get('/api/v1/room/'+this.state.id+'/')
+        .then(function(response) {
+            self.setState({
+                capacity: response.data.capacity,
+                name: response.data.name,
+                initialized: true
+            })
+        }
+        )
     }
     render() {
         return(
-                <h1>ROOM: {this.state.id}</h1>
+                <h1>ROOM: {this.state.name}</h1>
         )
     }
 }
