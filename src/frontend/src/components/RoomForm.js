@@ -27,6 +27,9 @@ class RoomForm extends Component {
            name: this.state.room_name,
            capacity: this.state.capacity
        })
+       .then(function(response) {
+           console.log(response)
+       })
     }
     render(){
      return(
@@ -65,6 +68,3 @@ class RoomForm extends Component {
 }
 
 export default RoomForm
-
-const container = document.getElementById("app");
-render(<RoomForm />, container);

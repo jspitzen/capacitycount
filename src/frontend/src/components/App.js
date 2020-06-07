@@ -1,51 +1,45 @@
-import React, { Component } from "react"
+import React from "react";
 import { render } from "react-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Container from 'react-bootstrap/Container'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      loaded: false,
-      placeholder: "Loading",
-      };
-  }
+import RoomForm from "./RoomForm";
+import RoomDetail from "./RoomDetail";
 
-  componentDidMount() {
-    fetch("api/v1/room")
-    .then(response => {
-      if (response.status > 400) {
-        return this.setState(() => {
-          return { placeholder: "Something went wrong!"};
-        });
-      }
-      return response.json();
-    })
-    .then(data => {
-      this.setState(() => {
-        return {
-          data,
-          loaded: true
-        };
-      });
-    });
-  }
 
-  render() {
-    return (
-      <ul>
-        {this.state.data.map(room => {
-          return (
-            <li key={room.id}>
-              {room.id} - {room.name}
-            </li>
-          )
-        })}
-      </ul>
-    );
-  }
+const container = document.getElementById("app");
+export default function App() {
+  return (
+    <Container className="p-3">
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/:room" component={RoomDetail}>
+          </Route>
+          <Route path="/">
+            <RoomForm />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+    </Container>
+  );
 }
 
-export default App;
-const container = document.getElementById("app");
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
 render(<App />, container);
